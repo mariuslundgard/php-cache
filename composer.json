@@ -1,0 +1,69 @@
+{
+    "name": "mariuslundgard/php-cache",
+    "description": "A PHP library for caching.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Marius Lundgård",
+            "email": "marius.lundgard@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "Cache": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.4.13",
+        "mariuslundgard/php-util": "dev-develop",
+        "mariuslundgard/php-core": "dev-develop",
+        "mariuslundgard/php-socket": "dev-develop",
+        "mariuslundgard/php-debug": "dev-develop",
+        "mariuslundgard/php-event": "dev-develop",
+        "mariuslundgard/php-finediff": "dev-develop",
+        "mariuslundgard/php-abstraction": "dev-develop",
+        "symfony/finder": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.0.*"
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/mariuslundgard/php-util"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/mariuslundgard/php-core"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/mariuslundgard/php-socket"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/mariuslundgard/php-debug"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/mariuslundgard/php-event"
+        },
+        {
+            "type":"package",
+            "package": {
+                "name": "mariuslundgard/php-finediff",
+                "version": "dev-develop",
+                "source": {
+                    "url": "https://github.com/mariuslundgard/FineDiff",
+                    "type": "git",
+                    "reference": "28356a9205f6d27c24368430978d88ab71b7fe34"
+                }
+            }
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/mariuslundgard/php-abstraction"
+        }
+    ]
+}
