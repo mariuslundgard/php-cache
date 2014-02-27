@@ -16,6 +16,7 @@ $cache = new Cache([
     // 'pass' => 'Does-the-moon-think-why?',
     // 'name' => 'dev_abstraction',
     // 'collection' => 'cache',
+    // 'path' => __DIR__.'/cache',
 ]);
 
 // var_dump($cache->keys());

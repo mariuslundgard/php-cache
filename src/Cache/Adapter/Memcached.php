@@ -26,6 +26,12 @@ class Memcached implements AdapterInterface
         return $this->getClient()->getAllKeys();
     }
 
+    public function delete($key)
+    {
+        echo 'delete';
+        return $this->getClient()->set($key, null, $expiration = 0);
+    }
+
     public function getClient()
     {
         if (null === $this->client) {
@@ -38,6 +44,8 @@ class Memcached implements AdapterInterface
 
     public function fetch($key)
     {
+        // TODO: remove all matching paths
+        // $key/*
         return $this->getClient()->get($key);
     }
 
