@@ -32,6 +32,14 @@ class Apc implements AdapterInterface
 
     public function delete($key)
     {
+        $iterator = new APCIterator($this->config['apcType'], '#^'.$key.'/#', APC_ITER_KEY);
+
+        foreach($iterator as $entry_name) {
+            echo $entry_name;
+            // $ret[] = $entry_name['key'];
+        }
+        exit;
+
         return apc_delete($key);
     }
 

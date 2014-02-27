@@ -26,7 +26,10 @@
         "symfony/finder": "*"
     },
     "require-dev": {
-        "phpunit/phpunit": "4.0.*"
+        "phpunit/phpunit": "4.0.*",
+        "mariuslundgard/archive": "dev-develop",
+        "mariuslundgard/speak": "dev-develop",
+        "mariuslundgard/studio": "dev-develop"
     },
     "repositories": [
         {
@@ -64,6 +67,18 @@
         {
             "type": "vcs",
             "url": "https://github.com/mariuslundgard/php-abstraction"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/mariuslundgard/speak"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/mariuslundgard/archive"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/mariuslundgard/studio"
         }
     ]
 }
