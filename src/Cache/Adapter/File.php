@@ -63,7 +63,7 @@ class File implements AdapterInterface
         $value = null;
 
         if (file_exists($path)) {
-            $value = unserialize(file_get_contents($path));
+            $value = @unserialize(file_get_contents($path));
         }
 
         return $value;

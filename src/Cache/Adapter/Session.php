@@ -22,7 +22,12 @@ class Session implements AdapterInterface
 
     public function delete($key)
     {
-        $this->_start();
+        foreach($this->keys() as $k) {
+            if (0 === strpos($k, $key) && '/' === substr($k, strlen($key), 1)) {
+                unset($_SESSION[$this->config['id']][$k]);
+            }
+        }
+
         unset($_SESSION[$this->config['id']][$key]);
     }
 

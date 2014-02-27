@@ -28,6 +28,13 @@ class Memcached implements AdapterInterface
 
     public function delete($key)
     {
+        // delete child keys
+        foreach($this->keys() as $k) {
+            if (0 === strpos($k, $key) && '/' === substr($k, strlen($key), 1)) {
+                $this->getClient()->delete($k);
+            }
+        }
+
         return $this->getClient()->delete($key);
     }
 

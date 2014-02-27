@@ -8,7 +8,7 @@ putenv('DEBUG=1');
 
 $cache = new Cache([
     // 'type' => 'dummy', // default
-    'type' => 'file',
+    // 'type' => 'file',
     // 'type' => 'session',
     // 'type' => 'memcached',
     // 'type' => 'apc',
@@ -34,28 +34,3 @@ foreach ($keys as $key) {
 if ( ! count($keys)) {
     echo '<p>No cache keys</p>';
 }
-
-// var_dump($cache->keys());
-
-//
-// $cacheVal = isset($_GET['message']) ? urldecode($_GET['message']) : 'Hello, world! #' . uniqid();
-
-// // prepare cache key
-// $cacheKey = md5($cacheVal);
-// $cacheKey = (substr($cacheKey, 0, 2)) . '/' . (substr($cacheKey, 2));
-
-// //
-// if ($cached = $cache->fetch($cacheKey)) {
-//     die('From cache: ' . $cached);
-// }
-
-// // simulate hard work and network latency . . .
-// sleep(1);
-// $cacheVal = '<h1>' . $cacheVal . '</h1>';
-
-// // store the cache value
-// $cache->store($cacheKey, $cacheVal);
-
-// // output
-// echo $cache->fetch($cacheKey);
-
