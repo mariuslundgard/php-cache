@@ -11,6 +11,11 @@ class Dummy implements AdapterInterface
         return array_keys($this->data);
     }
 
+    public function delete($key)
+    {
+        unset($this->data[$key]);
+    }
+
     public function fetch($key)
     {
         return isset($this->data[$key]) ? $this->data[$key] : null;

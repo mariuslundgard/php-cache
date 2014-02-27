@@ -45,7 +45,7 @@ class File implements AdapterInterface
         $finder = new Finder();
 
         $result = $finder
-            ->files()
+            // ->files()
             ->in($this->config['path']);
 
         $ret = [];

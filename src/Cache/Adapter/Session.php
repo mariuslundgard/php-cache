@@ -20,6 +20,12 @@ class Session implements AdapterInterface
         return array_keys($_SESSION[$this->config['id']]);
     }
 
+    public function delete($key)
+    {
+        $this->_start();
+        unset($_SESSION[$this->config['id']][$key]);
+    }
+
     public function fetch($key)
     {
         $this->_start();

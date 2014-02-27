@@ -87,4 +87,18 @@ class MySQL implements AdapterInterface
 
         return false;
     }
+
+    public function delete($key)
+    {
+        // $value = serialize($value);
+
+        if ($result = $this->getCollection()->findOne(compact('key'))) {
+            return $this->getCollection()->remove(compact('key'));
+        } else {
+            return true;
+            // return $this->getCollection()->insert(compact('key', 'value', 'expiration'));
+        }
+
+        return false;
+    }
 }

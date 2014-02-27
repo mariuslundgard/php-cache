@@ -19,14 +19,20 @@ class Apc implements AdapterInterface
 
     public function keys()
     {
-        $iter = new APCIterator($this->config['type']);
         $ret = [];
 
-        foreach ($iter as $item) {
-            $ret[] = $item['key'];
+        $iterator = new APCIterator($this->config['apcType'], null, APC_ITER_KEY);
+
+        foreach($iterator as $entry_name) {
+            $ret[] = $entry_name['key'];
         }
 
         return $ret;
+    }
+
+    public function delete($key)
+    {
+        return apc_delete($key);
     }
 
     public function fetch($key)
@@ -36,6 +42,7 @@ class Apc implements AdapterInterface
 
     public function store($key, $value, $expiration = null)
     {
-        apc_store($key, $value);
+        // expiration = time to live
+        apc_store($key, $value, $expiration);
     }
 }

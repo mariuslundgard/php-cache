@@ -28,8 +28,7 @@ class Memcached implements AdapterInterface
 
     public function delete($key)
     {
-        echo 'delete';
-        return $this->getClient()->set($key, null, $expiration = 0);
+        return $this->getClient()->delete($key);
     }
 
     public function getClient()
