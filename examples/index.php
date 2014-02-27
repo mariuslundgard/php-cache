@@ -8,9 +8,9 @@ use Cache\Cache;
 
 $cache = new Cache([
     // 'type' => 'dummy', // default
-    // 'type' => 'file',
+    'type' => 'file',
     // 'type' => 'session',
-    'type' => 'memcached',
+    // 'type' => 'memcached',
     // 'type' => 'apc',
     // 'type' => 'mysql',
     // 'pass' => 'Does-the-moon-think-why?',
@@ -48,5 +48,6 @@ $cacheVal = '<h1>' . $cacheVal . '</h1>';
 // store the cache value
 $cache->store($cacheKey, $cacheVal);
 
+// output
 echo $cache->fetch($cacheKey);
 

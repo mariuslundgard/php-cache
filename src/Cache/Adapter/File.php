@@ -6,6 +6,8 @@ use Cache\Cache;
 use Symfony\Component\Finder\Finder;
 use Exception;
 
+require __DIR__.'/file_helpers.php';
+
 class File implements AdapterInterface
 {
     protected $cache;
@@ -16,6 +18,26 @@ class File implements AdapterInterface
         $this->config = $config + [
             'path' => '/var/tmp/php-cache',
         ];
+    }
+
+    public function getConfig()
+    {
+        return $this->config;
+    }
+
+    public function delete($key)
+    {
+        $keyFilePath = $this->config['path'] .'/'. $key;
+
+        if (file_exists($keyFilePath)) {
+            if (is_dir($keyFilePath)) {
+                return rrmdir($keyFilePath);
+            }
+
+            return unlink($keyFilePath);
+        }
+
+        return true;
     }
 
     public function keys()
