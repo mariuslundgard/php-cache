@@ -13,7 +13,7 @@ class Apc implements AdapterInterface
     {
         $this->cache = $cache;
         $this->config = $config + [
-            'apcType' => 'user',
+            'type' => 'user',
         ];
     }
 
@@ -21,7 +21,7 @@ class Apc implements AdapterInterface
     {
         $ret = [];
 
-        $iterator = new APCIterator($this->config['apcType'], null, APC_ITER_KEY);
+        $iterator = new APCIterator($this->config['type'], null, APC_ITER_KEY);
 
         foreach($iterator as $entry_name) {
             $ret[] = $entry_name['key'];
@@ -32,13 +32,19 @@ class Apc implements AdapterInterface
 
     public function delete($key)
     {
-        $iterator = new APCIterator($this->config['apcType'], '#^'.$key.'/#', APC_ITER_KEY);
+        $iterator = new APCIterator($this->config['type'], '#^'.$key.'/#', APC_ITER_KEY);
 
-        foreach($iterator as $entry_name) {
-            echo $entry_name;
-            // $ret[] = $entry_name['key'];
+        foreach($iterator as $entryKey) {
+            // if (0 === strpos($k, $key) && '/' === substr($k, strlen($key), 1)) {
+            //     $this->getClient()->delete($k);
+            // }
+            // echo $entryKey;
+            // $ret[] = $entryKey['key'];
+            // apc_delete($entryKey);
+
+            d('delete apc entry key? ' . $entryKey);
         }
-        exit;
+        // exit;
 
         return apc_delete($key);
     }

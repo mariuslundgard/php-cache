@@ -13,7 +13,7 @@ class Cache implements Adapter\AdapterInterface
     public function __construct(array $config)
     {
         $this->config = new Dictionary([
-            'type' => 'dummy',
+            'adapter' => 'dummy',
         ]);
 
         $this->configure($config);
@@ -36,7 +36,7 @@ class Cache implements Adapter\AdapterInterface
     public function getAdapter()
     {
         if (null === $this->adapter) {
-            switch ($this->config['type']) {
+            switch ($this->config['adapter']) {
 
                 case 'dummy':
                     $this->adapter = new Adapter\Dummy($this, $this->config->get());
@@ -63,7 +63,7 @@ class Cache implements Adapter\AdapterInterface
                     break;
 
                 default:
-                    throw new Exception('Unknown cache type: ' . $this->config['type']);
+                    throw new Exception('Unknown cache adapter: ' . $this->config['adapter']);
             }
         }
 
